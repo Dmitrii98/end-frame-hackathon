@@ -12,6 +12,10 @@ import Friends from "./Components/Friends/Friends";
 import Meetings from "./Components/Meetings/Meetings";
 
 const App = () => {
+  const checkUserRoute = () => {
+    return !localStorage.getItem("user");
+  };
+
   return (
     <div className="App">
       <Switch>
@@ -21,19 +25,33 @@ const App = () => {
         <Route path="/registration">
           <Registration/>
         </Route>
-        <Route path="/profile">
+        <Route path="/profile"
+          // render={() => checkUserRoute() ? <Redirect to='/login'/> : <MyProfile/>}
+        >
           <MyProfile/>
         </Route>
-        <Route path="/news">
+        <Route
+          path="/news"
+          // render={() => checkUserRoute() ? <Redirect to='/login'/> :  <News/>}
+        >
           <News/>
         </Route>
-        <Route path="/messages">
+        <Route
+          path="/messages"
+          // render={() => checkUserRoute() ? <Redirect to='/login'/> :   <Messages/>}
+        >
           <Messages/>
         </Route>
-        <Route path="/friends">
+        <Route
+          path="/friends"
+          // render={() => checkUserRoute() ? <Redirect to='/login'/> :   <Messages/>}
+        >
           <Friends/>
         </Route>
-        <Route path="/meetings">
+        <Route
+          path="/meetings"
+          // render={() => checkUserRoute() ? <Redirect to='/login'/> :    <Meetings/>}
+        >
           <Meetings/>
         </Route>
         {!localStorage.getItem("user") && <Redirect from="" to="/login"/>}

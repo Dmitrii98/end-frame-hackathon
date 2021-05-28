@@ -4,7 +4,7 @@ a:-webkit-any-link {
 }
 
 .header {
-  height: 8vh;
+  height: max-content;
   background: #1976d2;
 
   .header_inner {
@@ -13,6 +13,7 @@ a:-webkit-any-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 3px 0;
 
     .logo_icon_home_page {
       padding-left: 2vw;

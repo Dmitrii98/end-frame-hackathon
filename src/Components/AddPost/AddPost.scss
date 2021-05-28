@@ -1,11 +1,19 @@
 .add_post {
   width: 70%;
-  border: 1px #9a9898 solid;
+  padding: 1vh 1vw 0;
 
   .text_area_add_post{
     width: 100%;
     resize: none;
     outline: none;
-    border: none;
+    border: 1px solid #9a9898;
+    border-radius: 5px;
+  }
+
+  .add_post_btn{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 2vh;
   }
 }

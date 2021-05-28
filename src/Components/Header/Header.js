@@ -6,8 +6,8 @@ import {
   MenuItem,
   Fade
 } from "@material-ui/core";
-import "./HeaderStyles.scss";
 import Logo from "../Icons/Logo";
+import "./HeaderStyles.scss";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,7 +24,7 @@ const Header = () => {
     <div className="header">
       <div className="header_inner">
         <Logo
-          width={100}
+          width={80}
           className="logo_icon_home_page"
         />
         <div className="profile_menu">
