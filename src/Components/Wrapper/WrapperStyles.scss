@@ -1,0 +1,31 @@
+.wrapper {
+  width: 100%;
+
+  .header {
+    width: 100%;
+    background: rgb(25, 118, 210);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .logo_icon{
+      position: absolute;
+      left: 50px;
+      fill: rgba(0,0,0, 0.8);
+
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      font-size: 44px;
+      margin: 20px 0;
+    }
+  }
+
+  .inner_wrapper {
+    margin: 10vh 0;
+    display: flex;
+    justify-content: center;
+  }
+}

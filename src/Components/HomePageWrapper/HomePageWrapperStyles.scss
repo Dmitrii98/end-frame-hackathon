@@ -1,0 +1,21 @@
+.home_page_wrapper{
+  width: 100%;
+  height: 100vh;
+  background: #cfe8fc;
+
+  .content_wrapper{
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+
+    .content_side_bar{
+      width: fit-content;
+    }
+
+    .content{
+      width: 80vw;
+      background: #e3ebf8;
+    }
+  }
+}

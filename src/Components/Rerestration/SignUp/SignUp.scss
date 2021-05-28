@@ -1,0 +1,50 @@
+.sign_up {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  width: 30vw;
+
+  .input_fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .input_field {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .input_text {
+        font-size: 16px;
+      }
+
+      .MuiOutlinedInput-root.input {
+        background: #fff;
+      }
+
+      .MuiTextField-root.input .MuiOutlinedInput-root {
+        background: #fff;
+      }
+    }
+  }
+
+  .submit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 4vh;
+  }
+
+  .buttons {
+    display: flex;
+    margin-top: 4vh;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+

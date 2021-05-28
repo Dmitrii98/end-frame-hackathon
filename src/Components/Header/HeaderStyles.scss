@@ -1,0 +1,37 @@
+a:-webkit-any-link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.header {
+  height: 8vh;
+  background: #1976d2;
+
+  .header_inner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo_icon_home_page {
+      padding-left: 2vw;
+      cursor: pointer;
+    }
+
+    .profile_menu {
+      display: flex;
+      align-items: center;
+      padding-right: 2vw;
+
+      .user_name {
+        margin-right: 2vw;
+        color: #fff;
+      }
+
+      .avatar {
+        cursor: pointer;
+      }
+    }
+  }
+}
