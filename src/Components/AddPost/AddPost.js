@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Button, TextareaAutosize } from "@material-ui/core";
 import "./AddPost.scss";
@@ -16,7 +16,7 @@ const AddPost = () => {
   );
 
   const updatePost = (e) => {
-    setPost(prevUser => ({ ...prevUser, [e.target.name]: e.target.value }));
+    setPost(prevUser => ({...prevUser, [e.target.name]: e.target.value}));
   };
 
   const handleAddPost = async () => {
@@ -30,7 +30,7 @@ const AddPost = () => {
           },
         }
       );
-      setPost(res.data)
+      setPost(res.data);
     } catch (e) {
       console.log(e);
     }

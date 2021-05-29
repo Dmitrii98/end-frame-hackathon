@@ -5,7 +5,6 @@ const FilterPosts = () => {
     <div className="filter_posts">
       <div className="filter_content">
         Filter dormitories
-
       </div>
     </div>
   );

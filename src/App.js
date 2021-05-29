@@ -16,7 +16,7 @@ const App = () => {
     return !localStorage.getItem("user");
   };
 
-  document.body.style.backgroundColor= "#e3ebf8"
+  document.body.style.backgroundColor = "#e3ebf8";
 
   return (
     <div className="App">
@@ -28,9 +28,11 @@ const App = () => {
           <Registration/>
         </Route>
         <Route
-          path="/profile"
-          render={() => checkUserRoute() ? <Redirect to="/profile"/> : <MyProfile/>}
-        />
+          path="/profile">
+          {/*// render={() => checkUserRoute() ? <Redirect to="/profile"/> : <MyProfile/>}*/}
+          {/*/>*/}
+          <MyProfile/>
+        </Route>
         <Route
           path="/news"
           render={() => checkUserRoute() ? <Redirect to="/news"/> : <News/>}

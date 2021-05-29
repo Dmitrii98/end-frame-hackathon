@@ -1,12 +1,12 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ModeCommentOutlinedIcon from "@material-ui/icons/ModeCommentOutlined";
 import "./PostStyles.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
-const Post = ({ post = {} }) => {
+const Post = ({post = {}}) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const {
     author,

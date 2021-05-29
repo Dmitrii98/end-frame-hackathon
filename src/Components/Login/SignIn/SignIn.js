@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 import {
   Button,
   IconButton,
@@ -9,7 +10,6 @@ import {
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
 import "./SignIn.scss";
-import axios from "axios";
 
 const SignIn = () => {
   const history = useHistory();
@@ -23,11 +23,11 @@ const SignIn = () => {
   });
 
   const updateUser = (e) => {
-    setUser(prevUser => ({ ...prevUser, [e.target.name]: e.target.value }));
+    setUser(prevUser => ({...prevUser, [e.target.name]: e.target.value}));
   };
 
   const handleClickShowPassword = () => {
-    setShowPassword({ ...showPassword, showPassword: !showPassword.showPassword });
+    setShowPassword({...showPassword, showPassword: !showPassword.showPassword});
   };
 
   const handleMouseDownPassword = (event) => {

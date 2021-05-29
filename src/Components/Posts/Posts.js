@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Post from "./Post/Post";
 import "./PostsStyles.scss";
-import axios from "axios";
 
 const MainPage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -17,15 +17,15 @@ const MainPage = () => {
           },
         }
       );
-      setPosts(res.data)
+      setPosts(res.data);
     } catch (e) {
       console.log(e);
     }
   };
 
-  useEffect(() =>{
+  useEffect(() => {
     getPosts();
-  },[])
+  }, []);
 
   return (
     <div className="posts">

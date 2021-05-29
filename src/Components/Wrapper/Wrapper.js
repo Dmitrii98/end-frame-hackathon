@@ -25,7 +25,6 @@ const Login = () => {
           </Route>
         </Switch>
       </div>
-
     </div>
   );
 };

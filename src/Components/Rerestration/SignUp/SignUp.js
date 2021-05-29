@@ -107,14 +107,14 @@ const SignUp = () => {
   ];
 
   const updateUser = (e) => {
-    setUser(prevUser => ({ ...prevUser, [e.target.name]: e.target.value }));
+    setUser(prevUser => ({...prevUser, [e.target.name]: e.target.value}));
   };
 
   const handleClickShowPassword = () => {
-    setShowPassword({ ...showPassword, showPassword: !showPassword.showPassword });
+    setShowPassword({...showPassword, showPassword: !showPassword.showPassword});
   };
   const handleClickShowRepeatPassword = () => {
-    setShowPassword({ ...showPassword, showRepeatPassword: !showPassword.showRepeatPassword });
+    setShowPassword({...showPassword, showRepeatPassword: !showPassword.showRepeatPassword});
   };
 
   const handleMouseDownPassword = (event) => {
@@ -141,6 +141,7 @@ const SignUp = () => {
             <Select
               onChange={(e) => updateUser(e)}
               name="dorm"
+              style={{background: "#fff"}}
             >
               {dorms.map((item, index) =>
                 <MenuItem

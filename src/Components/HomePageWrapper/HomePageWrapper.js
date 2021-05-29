@@ -6,6 +6,7 @@ import {
 } from "@material-ui/core";
 import SideBar from "../SideBar/SideBar";
 import MainPage from "../News/MainPage/MainPage";
+import ProfilePage from "../MyProfile/ProfilePage/ProfilePage";
 import "./HomePageWrapperStyles.scss";
 
 const HomePageWrapper = () => {
@@ -20,7 +21,7 @@ const HomePageWrapper = () => {
           <div className="content">
             <Switch>
               <Route path="/profile">
-                <p>My profile</p>
+                <ProfilePage/>
               </Route>
               <Route path="/news">
                 <MainPage/>

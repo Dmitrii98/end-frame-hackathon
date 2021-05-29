@@ -16,7 +16,6 @@ import "./SideBar.scss";
 const SideBar = () => {
   return (
     <div className="side_bar">
-      {/*<Divider/>*/}
       <List className="list_bar">
         <Link to="/profile">
           <ListItem button>
@@ -49,7 +48,6 @@ const SideBar = () => {
           </ListItem>
         </Link>
       </List>
-      {/*<Divider/>*/}
     </div>
   );
 };
