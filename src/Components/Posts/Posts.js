@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import Post from "./Post/Post";
 import "./PostsStyles.scss";
 import axios from "axios";
-import { useEffect, useState } from "react";
 
 const MainPage = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -13,7 +13,7 @@ const MainPage = () => {
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
-            "Authorization": `Bearer ${user?.accessToken} `
+            "Authorization": `Bearer ${user?.accessToken}`
           },
         }
       );
@@ -29,7 +29,7 @@ const MainPage = () => {
 
   return (
     <div className="posts">
-      {posts?.map((post, index) => (
+      {posts?.map((post) => (
         <Post key={`key-${posts?.id}`} post={post}/>
       ))}
     </div>

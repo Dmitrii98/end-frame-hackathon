@@ -1,13 +1,13 @@
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import { Button, TextareaAutosize } from "@material-ui/core";
 import "./AddPost.scss";
-import axios from "axios";
-import { useState } from "react";
 
 const AddPost = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [post, setPost] = useState(
     {
-      author: `${user?.name}${user?.lastName}`,
+      author: `${user?.name} ${user?.lastName}`,
       // isAnon: false,
       // forAll: false,
       message: "",
@@ -30,7 +30,7 @@ const AddPost = () => {
           },
         }
       );
-      console.log(res);
+      setPost(res.data)
     } catch (e) {
       console.log(e);
     }

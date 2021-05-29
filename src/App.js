@@ -10,7 +10,6 @@ import News from "./Components/News/News";
 import Messages from "./Components/Messages/Messages";
 import Friends from "./Components/Friends/Friends";
 import Meetings from "./Components/Meetings/Meetings";
-import "./App.css";
 
 const App = () => {
   const checkUserRoute = () => {
