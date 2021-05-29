@@ -1,4 +1,9 @@
+body{
+    height: 100vh;
+    background-color: rgb(151, 194, 234);
+}
+
 .App{
     background: rgb(151, 194, 234);
-
+    height: 100%;
 }
