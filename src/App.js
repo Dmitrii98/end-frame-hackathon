@@ -25,36 +25,27 @@ const App = () => {
         <Route path="/registration">
           <Registration/>
         </Route>
-        <Route path="/profile"
-          // render={() => checkUserRoute() ? <Redirect to='/login'/> : <MyProfile/>}
-        >
-          <MyProfile/>
-        </Route>
+        <Route
+          path="/profile"
+          render={() => checkUserRoute() ? <Redirect to="/profile"/> : <MyProfile/>}
+        />
         <Route
           path="/news"
-          // render={() => checkUserRoute() ? <Redirect to='/login'/> :  <News/>}
-        >
-          <News/>
-        </Route>
+          render={() => checkUserRoute() ? <Redirect to="/news"/> : <News/>}
+        />
         <Route
           path="/messages"
-          // render={() => checkUserRoute() ? <Redirect to='/login'/> :   <Messages/>}
-        >
-          <Messages/>
-        </Route>
+          render={() => checkUserRoute() ? <Redirect to="/messages"/> : <Messages/>}
+        />
         <Route
           path="/friends"
-          // render={() => checkUserRoute() ? <Redirect to='/login'/> :   <Messages/>}
-        >
-          <Friends/>
-        </Route>
+          render={() => checkUserRoute() ? <Redirect to="/friends"/> : <Friends/>}
+        />
         <Route
           path="/meetings"
-          // render={() => checkUserRoute() ? <Redirect to='/login'/> :    <Meetings/>}
-        >
-          <Meetings/>
-        </Route>
-        {!localStorage.getItem("user") && <Redirect from="" to="/login"/>}
+          render={() => checkUserRoute() ? <Redirect to="/meetings"/> : <Meetings/>}
+        />
+        {!localStorage.getItem("user") && <Redirect to="/login"/>}
       </Switch>
     </div>
   );

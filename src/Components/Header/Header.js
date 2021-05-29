@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Avatar,
   Menu,
@@ -10,6 +10,8 @@ import Logo from "../Icons/Logo";
 import "./HeaderStyles.scss";
 
 const Header = () => {
+  const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("user"));
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -20,6 +22,12 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    history.push("/login");
+  };
+
   return (
     <div className="header">
       <div className="header_inner">
@@ -31,7 +39,7 @@ const Header = () => {
           <p
             className="user_name"
           >
-            Имя пользователя
+            {user?.name} {user?.lastName}
           </p>
           <Avatar
             src="/broken-image.jpg"
@@ -52,7 +60,7 @@ const Header = () => {
             <Link to="/profile">
               <MenuItem onClick={handleClose}>Мой профиль</MenuItem>
             </Link>
-            <MenuItem onClick={handleClose}>Выйти</MenuItem>
+            <MenuItem onClick={handleLogout}>Выйти</MenuItem>
           </Menu>
         </div>
       </div>

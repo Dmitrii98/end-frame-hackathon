@@ -1,0 +1,65 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 1vw 0;
+
+  .header_post {
+    display: flex;
+    height: 5vh;
+    align-items: center;
+
+    .avatar_header_post {
+      margin-right: 2vw;
+      width: max-content;
+      align-items: center;
+
+      .accountCircleIcon {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .author_header_post {
+      display: flex;
+      flex-direction: column;
+
+
+      .name_author_header_post {
+        margin: 0 0 5px;
+        font-size: 20px;
+        font-family: "Roboto";
+      }
+
+      .data_author_header_post {
+        margin: 0;
+        font-size: 16px;
+        color: #8b8989;
+      }
+    }
+
+    .dorm_header_post {
+      display: flex;
+      margin-left: 2vw;
+
+      .name_dorm_header_post {
+        margin: 0;
+        font-size: 14px;
+        font-family: "Roboto";
+        font-style: italic;
+      }
+    }
+  }
+
+  .message_post{
+    margin-top: 2vh;
+    padding-bottom: 2vh;
+    border-bottom: 1px solid #b3b0b0;
+
+    .text_message_post{
+      font-family: "Roboto";
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
+}

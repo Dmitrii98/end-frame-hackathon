@@ -1,19 +1,56 @@
 import { Button, TextareaAutosize } from "@material-ui/core";
 import "./AddPost.scss";
+import axios from "axios";
+import { useState } from "react";
 
-const FilterPosts = () => {
+const AddPost = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [post, setPost] = useState(
+    {
+      author: `${user?.name}${user?.lastName}`,
+      // isAnon: false,
+      // forAll: false,
+      message: "",
+      dorm: user?.dorm
+    }
+  );
+
+  const updatePost = (e) => {
+    setPost(prevUser => ({ ...prevUser, [e.target.name]: e.target.value }));
+  };
+
+  const handleAddPost = async () => {
+    try {
+      const res = await axios.post("http://10.131.56.224:4000/addPost",
+        post,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Authorization": `Bearer ${user?.accessToken} `
+          },
+        }
+      );
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <div className="add_post">
       <TextareaAutosize
         aria-label="empty textarea"
         className="text_area_add_post"
-        placeholder="Дмитрий, о чем Вы хотите поделиться ?"
-        rowsMin={10}
+        placeholder={`${user?.name}, чем Вы хотите поделиться ?`}
+        rows={3}
+        name="message"
+        onChange={(e) => updatePost(e)}
       />
       <div className="add_post_btn">
         <Button
           variant="contained"
           color="primary"
+          onClick={handleAddPost}
         >
           Добавить пост
         </Button>
@@ -22,4 +59,4 @@ const FilterPosts = () => {
   );
 };
 
-export default FilterPosts;
+export default AddPost;

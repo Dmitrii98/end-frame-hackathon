@@ -1,9 +1,37 @@
+import Post from "./Post/Post";
 import "./PostsStyles.scss";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const MainPage = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [posts, setPosts] = useState();
+
+  const getPosts = async () => {
+    try {
+      const res = await axios.get("http://10.131.56.224:4000/getPosts",
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Authorization": `Bearer ${user?.accessToken} `
+          },
+        }
+      );
+      setPosts(res.data)
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() =>{
+    getPosts();
+  },[])
+
   return (
     <div className="posts">
-posts
+      {posts?.map((post, index) => (
+        <Post key={`key-${posts?.id}`} post={post}/>
+      ))}
     </div>
   );
 };

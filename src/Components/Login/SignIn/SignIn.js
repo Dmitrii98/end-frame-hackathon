@@ -35,9 +35,8 @@ const SignIn = () => {
   };
 
   const handleLogin = async () => {
-    console.log(user);
     try {
-      const res = await axios.post("http://192.168.0.64:4000/login",
+      const res = await axios.post("http://10.131.56.224:4000/login",
         user,
         {
           headers: {
@@ -45,8 +44,9 @@ const SignIn = () => {
           },
         }
       );
-      console.log(res.data);
       localStorage.setItem("user", JSON.stringify(res.data));
+      history.push("/profile");
+      console.log(res);
     } catch (e) {
       console.log(e);
     }

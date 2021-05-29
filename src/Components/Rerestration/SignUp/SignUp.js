@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import {
-  Button,
+  Button, FormControl,
   IconButton,
   InputAdornment,
+  MenuItem,
   OutlinedInput,
+  Select,
   TextField
 } from "@material-ui/core";
 import { Visibility, VisibilityOff } from "@material-ui/icons";
@@ -20,6 +22,7 @@ const SignUp = () => {
     login: "",
     email: "",
     password: "",
+    dorm: -1
   });
 
   const [showPassword, setShowPassword] = useState({
@@ -29,9 +32,8 @@ const SignUp = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const handleSubmit = async () => {
-    console.log(user);
     try {
-      const res = await axios.post("http://192.168.0.64:4000/registration",
+      const res = await axios.post("http://10.131.56.224:4000/registration",
         user,
         {
           headers: {
@@ -40,8 +42,7 @@ const SignUp = () => {
         }
       );
       localStorage.setItem("user", JSON.stringify(res.data));
-      history.push("/home_page");
-      console.log(res);
+      history.push("/profile");
     } catch (e) {
       console.log(e);
     }
@@ -74,15 +75,46 @@ const SignUp = () => {
     // },
   ];
 
+  const dorms = [
+    {
+      value: 1,
+      name: "1-ое общежитие"
+    },
+    {
+      value: 2,
+      name: "2-ое общежитие"
+    },
+    {
+      value: 3,
+      name: "3-ое общежитие"
+    },
+    {
+      value: 4,
+      name: "4-ое общежитие"
+    },
+    {
+      value: 5,
+      name: "5-ое общежитие"
+    },
+    {
+      value: 6,
+      name: "6-ое общежитие"
+    },
+    {
+      value: 7,
+      name: "7-ое общежитие"
+    },
+  ];
+
   const updateUser = (e) => {
-    setUser(prevUser => ({...prevUser, [e.target.name]: e.target.value}));
+    setUser(prevUser => ({ ...prevUser, [e.target.name]: e.target.value }));
   };
 
   const handleClickShowPassword = () => {
-    setShowPassword({...showPassword, showPassword: !showPassword.showPassword});
+    setShowPassword({ ...showPassword, showPassword: !showPassword.showPassword });
   };
   const handleClickShowRepeatPassword = () => {
-    setShowPassword({...showPassword, showRepeatPassword: !showPassword.showRepeatPassword});
+    setShowPassword({ ...showPassword, showRepeatPassword: !showPassword.showRepeatPassword });
   };
 
   const handleMouseDownPassword = (event) => {
@@ -103,6 +135,24 @@ const SignUp = () => {
             />
           </div>
         ))}
+        <div className="input_fields">
+          <p className="input_text">Общежитие: </p>
+          <FormControl className="select_dorm" variant="outlined">
+            <Select
+              onChange={(e) => updateUser(e)}
+              name="dorm"
+            >
+              {dorms.map((item, index) =>
+                <MenuItem
+                  key={`key-${index}`}
+                  value={item.value}
+                >
+                  {item.name}
+                </MenuItem>
+              )}
+            </Select>
+          </FormControl>
+        </div>
         <div className="input_field">
           <p className="input_text">Пароль: </p>
           <OutlinedInput
