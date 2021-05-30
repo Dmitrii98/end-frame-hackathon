@@ -1,0 +1,17 @@
+.meetings_page {
+  display: flex;
+  flex-direction: column;
+
+  .meetings_main_header {
+    display: flex;
+  }
+
+  .space {
+    height: 2vh;
+    background-color: #e3ebf8;
+  }
+
+  .meetings_main_content {
+    width: 100%;
+  }
+}

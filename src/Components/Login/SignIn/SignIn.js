@@ -36,7 +36,7 @@ const SignIn = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://10.131.56.224:4000/login",
+      const res = await axios.post("http://10.131.56.106:4000/login",
         user,
         {
           headers: {
