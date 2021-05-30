@@ -8,7 +8,7 @@ const ProfilePage = () => {
       <div className="user_information">
         <div className="avatar_profile_page">
           <img
-            src={anonUser }
+            src={anonUser}
             alt="anonUser"
             className="img_avatar_profile_page"
           />
