@@ -3,13 +3,13 @@ import axios from "axios";
 import Post from "./Post/Post";
 import "./PostsStyles.scss";
 
-const MainPage = () => {
+const MainPage = ({ filteredPosts }) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [posts, setPosts] = useState();
 
   const getPosts = async () => {
     try {
-      const res = await axios.get("http://10.131.56.224:4000/getPosts",
+      const res = await axios.get("http://10.131.56.106:4000/getPosts",
         {
           headers: {
             "Access-Control-Allow-Origin": "*",

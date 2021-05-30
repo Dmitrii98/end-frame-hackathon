@@ -28,11 +28,9 @@ const App = () => {
           <Registration/>
         </Route>
         <Route
-          path="/profile">
-          {/*// render={() => checkUserRoute() ? <Redirect to="/profile"/> : <MyProfile/>}*/}
-          {/*/>*/}
-          <MyProfile/>
-        </Route>
+          path="/profile"
+          render={() => checkUserRoute() ? <Redirect to="/profile"/> : <MyProfile/>}
+        />
         <Route
           path="/news"
           render={() => checkUserRoute() ? <Redirect to="/news"/> : <News/>}

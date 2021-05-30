@@ -1,12 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import {
-  Container,
-  CssBaseline,
-} from "@material-ui/core";
+import { Container, CssBaseline } from "@material-ui/core";
 import SideBar from "../SideBar/SideBar";
 import MainPage from "../News/MainPage/MainPage";
 import ProfilePage from "../MyProfile/ProfilePage/ProfilePage";
+import MeetingsPage from "../Meetings/MeetingsPage/MeetingsPage";
 import "./HomePageWrapperStyles.scss";
 
 const HomePageWrapper = () => {
@@ -35,8 +33,7 @@ const HomePageWrapper = () => {
                 <p>Friends</p>
               </Route>
               <Route path="/meetings">
-                {/*<Meetings/>*/}
-                <p>Meetings</p>
+                <MeetingsPage/>
               </Route>
             </Switch>
           </div>

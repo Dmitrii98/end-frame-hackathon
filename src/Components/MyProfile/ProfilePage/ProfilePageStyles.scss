@@ -1,0 +1,54 @@
+.profile_page {
+  padding: 2vh 1vw 0;
+  display: flex;
+  flex-direction: column;
+
+  .user_information {
+    display: flex;
+
+    .avatar_profile_page {
+      cursor: pointer;
+
+      .img_avatar_profile_page {
+        width: 200px;
+        border-radius: 5px;
+      }
+    }
+
+    .full_name_profile_page {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1vw;
+
+      .text_full_name_user_information {
+        margin: 0;
+        font-size: 24px;
+        font-family: "Roboto";
+      }
+
+      .status_profile_page {
+        font-size: 16px;
+        font-family: "Roboto";
+        color: #8b8989;
+        cursor: pointer;
+      }
+
+      .user_information_profile_page {
+        display: flex;
+        flex-direction: column;
+
+        .dorm_user_information, .university_user_information {
+          font-size: 20px;
+          font-family: "Roboto";
+          margin-bottom: 0;
+
+          .title_user_information {
+            font-weight: bold;
+          }
+        }
+
+      }
+    }
+  }
+
+}

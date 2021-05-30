@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -6,40 +6,24 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ModeCommentOutlinedIcon from "@material-ui/icons/ModeCommentOutlined";
 import "./PostStyles.scss";
 
-const Post = ({post = {}}) => {
+const Post = ({ post = {} }) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const {
     author,
     message,
     dorm,
     date,
-    id
+    id,
+    count,
+    isLiked,
+    forAll
   } = post;
-  const [likes, setLikes] = useState();
-  const [testLiked, setTestLiked] = useState(likes?.isLiked);
-
-  const getPostLikes = async () => {
-    try {
-      const res = await axios.post("http://10.131.56.224:4000/getPostLikes",
-        {
-          postId: id
-        },
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Authorization": `Bearer ${user?.accessToken}`,
-          },
-        }
-      );
-      setLikes(res.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const [testLiked, setTestLiked] = useState(isLiked);
+  const [testCount, setTestCount] = useState(count);
 
   const tapLikeButton = async () => {
     try {
-      const res = await axios.post("http://10.131.56.224:4000/tapLikeButton",
+      const res = await axios.post("http://10.131.56.106:4000/tapLikeButton",
         {
           postId: id
         },
@@ -51,16 +35,15 @@ const Post = ({post = {}}) => {
         }
       );
       setTestLiked(!testLiked);
+      if (testLiked) {
+        setTestCount(testCount - 1);
+      } else {
+        setTestCount(testCount + 1);
+      }
     } catch (e) {
       console.log(e);
     }
   };
-
-  useEffect(() => {
-    getPostLikes();
-  }, [testLiked]);
-
-  console.log(testLiked);
 
   return (
     <div className="post">
@@ -69,12 +52,20 @@ const Post = ({post = {}}) => {
           <AccountCircleIcon color="action" className="accountCircleIcon"/>
         </div>
         <div className="author_header_post">
-          <p className="name_author_header_post">{author}</p>
+          <p className="name_author_header_post">
+            {author}
+          </p>
           <p className="data_author_header_post">{date}</p>
         </div>
         <div className="dorm_header_post">
           <p className="name_dorm_header_post">Общежитие №{dorm}</p>
         </div>
+        {forAll
+          ? <div className="for_all_post">
+            <p className="for_all_text">ВАЖНО!</p>
+          </div>
+          : <div></div>
+        }
       </div>
       <div className="message_post">
         <p className="text_message_post">{message}</p>
@@ -93,7 +84,7 @@ const Post = ({post = {}}) => {
               onClick={tapLikeButton}
             />
         }
-        <p className="likes_count">{likes?.count}</p>
+        <p className="likes_count">{testCount}</p>
         <ModeCommentOutlinedIcon
           color={"action"}
           className="comment_icon"

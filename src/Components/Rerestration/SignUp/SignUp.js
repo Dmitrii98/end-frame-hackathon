@@ -33,7 +33,7 @@ const SignUp = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post("http://10.131.56.224:4000/registration",
+      const res = await axios.post("http://10.131.56.106:4000/registration",
         user,
         {
           headers: {
@@ -69,10 +69,10 @@ const SignUp = () => {
       value: "E-mail",
       name: "email"
     },
-    // {
-    //   value: "Пригласительный код",
-    //   name: "invitationCode"
-    // },
+    {
+      value: "Пригласительный код",
+      name: "invitationCode"
+    },
   ];
 
   const dorms = [
@@ -107,14 +107,14 @@ const SignUp = () => {
   ];
 
   const updateUser = (e) => {
-    setUser(prevUser => ({...prevUser, [e.target.name]: e.target.value}));
+    setUser(prevUser => ({ ...prevUser, [e.target.name]: e.target.value }));
   };
 
   const handleClickShowPassword = () => {
-    setShowPassword({...showPassword, showPassword: !showPassword.showPassword});
+    setShowPassword({ ...showPassword, showPassword: !showPassword.showPassword });
   };
   const handleClickShowRepeatPassword = () => {
-    setShowPassword({...showPassword, showRepeatPassword: !showPassword.showRepeatPassword});
+    setShowPassword({ ...showPassword, showRepeatPassword: !showPassword.showRepeatPassword });
   };
 
   const handleMouseDownPassword = (event) => {
@@ -141,7 +141,7 @@ const SignUp = () => {
             <Select
               onChange={(e) => updateUser(e)}
               name="dorm"
-              style={{background: "#fff"}}
+              style={{ background: "#fff" }}
             >
               {dorms.map((item, index) =>
                 <MenuItem
